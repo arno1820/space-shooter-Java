@@ -10,10 +10,10 @@ import java.awt.event.MouseWheelListener;
 
 public class Input implements KeyListener, MouseListener, MouseMotionListener, MouseWheelListener {
 
-	GameController gc;
+	private GameController gc;
 	
 	public Input(GameController gc) {
-		this.gc = gc;
+		this.gc = gc
 	}
 
 	@Override
