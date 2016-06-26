@@ -3,6 +3,7 @@ package engine.core;
 import java.awt.image.DataBufferByte;
 
 import engine.core.gfx.Color;
+import engine.core.gfx.Image;
 
 public class Renderer {
 	
@@ -26,6 +27,16 @@ public class Renderer {
 		pixels[index + 3] = (byte) ((c.r * 255f) + 0.5f);
 	}
 
+	public void drawImage(Image image, int offX, int offY){
+		
+		for(int x = 0; x < image.getWidth(); x++){
+			for(int y = 0; y < image.getHeight(); y++){
+				setPixel(x + offX, y + offY, image.getPixels()[x+y*image.getWidth()]);
+			}
+		}
+		
+	}
+	
 	public void clear(){
 		//TODO RGB INVERSED??
 		for(int x = 0; x < width; x++){

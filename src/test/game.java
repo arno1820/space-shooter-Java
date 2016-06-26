@@ -1,14 +1,19 @@
 package test;
 
+import javax.imageio.ImageIO;
+
 import com.sun.glass.events.KeyEvent;
 
 import engine.core.AbstractGame;
 import engine.core.GameController;
 import engine.core.Input;
 import engine.core.Renderer;
+import engine.core.gfx.Image;
 
 public class game extends AbstractGame{
 
+	private Image image = new Image("/Background.png");
+	
 	public static void main(String args[]){
 		GameController gc = new GameController(new game());
 		gc.start();
@@ -23,8 +28,7 @@ public class game extends AbstractGame{
 
 	@Override
 	public void render(GameController gc, Renderer r) {
-		// TODO Auto-generated method stub
-		
+		r.drawImage(image, 0, 0);
 	}
 
 }

@@ -9,9 +9,9 @@ public class GameController implements Runnable{
 	private Input input;
 	
 	//to be changed! not alot of pixels -> small resolution (because cpu is going to render all)
-	private int width = 320, height = 240;
+	private int width = 320, height = 180;
 	//we need to enlarge our with an height to a nice window size.
-	private float scale = 2.0f;
+	private float scale = 6.0f;
 	private String title = "AEngine by Arno Rondou v1.0";
 	
 	private boolean isRunning = false;
