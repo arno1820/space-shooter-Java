@@ -5,6 +5,7 @@ public class GameController implements Runnable{
 	private Thread thread;
 	private AbstractGame game;
 	private Window window;
+	private Renderer renderer;
 	
 	//to be changed! not alot of pixels -> small resolution (because cpu is going to render all)
 	private int width = 320, height = 240;
@@ -26,6 +27,7 @@ public class GameController implements Runnable{
 		if(isRunning) return;
 		
 		window = new Window(this);
+		renderer = new Renderer(this);
 		
 		thread = new Thread(this);
 		thread.run();
@@ -48,7 +50,8 @@ public class GameController implements Runnable{
 		double lastTime = System.nanoTime() / 1000000000.0;
 		double passedTime = 0;
 		double unprocessedTime = 0;
-		
+		double frameTime = 0;
+		int frameRate = 0;	
 		
 		while(isRunning){
 			
@@ -61,24 +64,33 @@ public class GameController implements Runnable{
 			lastTime = firstTime;
 			
 			unprocessedTime += passedTime;
+			frameTime += passedTime;
 			
 			while(unprocessedTime >= frameCap){
 				
 				game.update(this, (float) frameCap);
 				unprocessedTime -= frameCap;
 				render = true;
+				
+				if(frameTime >= 1){
+					frameTime = 0;
+					System.out.println(frameRate);
+					frameRate = 0;
+				}
+				
 			}
 			
 			if(render){
-				//clear screen
-				//game.render(this, r);
+				renderer.clear();
+				game.render(this, renderer);
 				window.update();
+				frameRate++;
+				
 			}else{
 				try {
 					//no render, just sleep a bit. easier on the cpu.
 					Thread.sleep(1);
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -123,5 +135,9 @@ public class GameController implements Runnable{
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	
+
+	public Window getWindow() {
+		return window;
+	}
+
 }
