@@ -12,10 +12,50 @@ public class Input implements KeyListener, MouseListener, MouseMotionListener, M
 
 	private GameController gc;
 	
+	//don't need to be static
+	private static boolean[] keys = new boolean[256];
+	private static boolean[] keysLast = new boolean[256];
+	private static boolean[] Buttons = new boolean[5];
+	private static boolean[] ButtonsLast = new boolean[5];
+	
 	public Input(GameController gc) {
-		this.gc = gc
+		this.gc = gc;
+		gc.getWindow().getCanvas().addKeyListener(this);
+		gc.getWindow().getCanvas().addMouseListener(this);
+		gc.getWindow().getCanvas().addMouseMotionListener(this);
+		gc.getWindow().getCanvas().addMouseWheelListener(this);
 	}
 
+	public void update(){
+		keysLast = keys.clone();
+		ButtonsLast = Buttons.clone();
+	}
+	
+	public static boolean isKey(int keyCode){
+		return keys[keyCode];
+	}
+	
+	//is this the first frame that keyCode has been pressed?
+	public static boolean isKeyPressed(int keyCode){
+		return keys[keyCode] && !keysLast[keyCode];
+	}
+	
+	public static boolean isKeyReleased(int keyCode){
+		return !keys[keyCode] && keysLast[keyCode];
+	}
+	
+	public static boolean isButton(int ButtonCode){
+		return Buttons[ButtonCode];
+	}
+	
+	public static boolean isButtonPressed(int ButtonCode){
+		return Buttons[ButtonCode] && !ButtonsLast[ButtonCode];
+	}
+	
+	public static boolean isButtonReleased(int ButtonCode){
+		return !Buttons[ButtonCode] && ButtonsLast[ButtonCode];
+	}
+	
 	@Override
 	public void mouseWheelMoved(MouseWheelEvent e) {
 		// TODO Auto-generated method stub
@@ -54,26 +94,23 @@ public class Input implements KeyListener, MouseListener, MouseMotionListener, M
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		Buttons[e.getButton()] = true;		
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		Buttons[e.getButton()] = true;		
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
+		keys[e.getKeyCode()] = true;
 		
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
+		keys[e.getKeyCode()] = false;
 	}
 
 	@Override

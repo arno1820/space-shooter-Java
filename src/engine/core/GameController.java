@@ -6,6 +6,7 @@ public class GameController implements Runnable{
 	private AbstractGame game;
 	private Window window;
 	private Renderer renderer;
+	private Input input;
 	
 	//to be changed! not alot of pixels -> small resolution (because cpu is going to render all)
 	private int width = 320, height = 240;
@@ -28,7 +29,7 @@ public class GameController implements Runnable{
 		
 		window = new Window(this);
 		renderer = new Renderer(this);
-		
+		input = new Input(this);
 		thread = new Thread(this);
 		thread.run();
 		
@@ -69,6 +70,7 @@ public class GameController implements Runnable{
 			while(unprocessedTime >= frameCap){
 				
 				game.update(this, (float) frameCap);
+				input.update();
 				unprocessedTime -= frameCap;
 				render = true;
 				

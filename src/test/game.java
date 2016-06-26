@@ -1,7 +1,10 @@
 package test;
 
+import com.sun.glass.events.KeyEvent;
+
 import engine.core.AbstractGame;
 import engine.core.GameController;
+import engine.core.Input;
 import engine.core.Renderer;
 
 public class game extends AbstractGame{
@@ -13,8 +16,9 @@ public class game extends AbstractGame{
 
 	@Override
 	public void update(GameController gc, float dt) {
-		// TODO Auto-generated method stub
-		
+		if(Input.isKey(KeyEvent.VK_1)) System.out.println("hey!");
+		if(Input.isKeyPressed(KeyEvent.VK_2)) System.out.println("heey!");
+		if(Input.isKeyReleased(KeyEvent.VK_3)) System.out.println("hey!");
 	}
 
 	@Override
