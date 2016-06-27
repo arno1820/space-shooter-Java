@@ -57,7 +57,7 @@ public class GameController implements Runnable{
 		while(isRunning){
 			
 			//render only when updated
-			boolean render = false;
+			boolean render = true;
 			
 			//Records how long this while takes 
 			firstTime = System.nanoTime() / 1000000000.0;

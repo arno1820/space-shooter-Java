@@ -1,30 +1,27 @@
 package engine.core;
 
 import java.awt.image.DataBufferByte;
+import java.awt.image.DataBufferInt;
 
-import engine.core.gfx.Color;
+import engine.core.gfx.PixelAid;
 import engine.core.gfx.Image;
 
 public class Renderer {
 	
 	private int width, height;
-	private byte[] pixels;
+	private int[] pixels;
 	
 	public Renderer(GameController gc) {
 		this.width = gc.getWidth();
 		this.height = gc.getHeight();
-		pixels = ((DataBufferByte) gc.getWindow().getImage().getRaster().getDataBuffer()).getData();
+		pixels = ((DataBufferInt) gc.getWindow().getImage().getRaster().getDataBuffer()).getData();
 	}
 	//totaal geprogrameerd!
-	public void setPixel(int x, int y, Color c){
+	public void setPixel(int x, int y, int color){
 		
-		if((x < 0 || x >= width || y < 0 || y >= height) || c.a == 0) return;
+		if(x < 0 || x >= width || y < 0 || y >= height) return;
 		
-		int index = (x + y *width)*4;
-		pixels[index] = (byte) ((c.a * 255f) + 0.5f);
-		pixels[index + 1] = (byte) ((c.b * 255f) + 0.5f);
-		pixels[index + 2] = (byte) ((c.g * 255f) + 0.5f);
-		pixels[index + 3] = (byte) ((c.r * 255f) + 0.5f);
+		pixels[x+y*width] = color;
 	}
 
 	public void drawImage(Image image, int offX, int offY){
@@ -41,8 +38,8 @@ public class Renderer {
 		//TODO RGB INVERSED??
 		for(int x = 0; x < width; x++){
 			for(int y = 0; y < height; y++ ){
-				// DO NOT! setPixel(x,y, new Color(a,r,g,b) !!!!!
-				setPixel(x, y, Color.Black);
+				//Hexadecimaal voor zwart: 0xAARRGGBB
+				setPixel(x, y, 0xff000000);
 			}
 		}
 	}

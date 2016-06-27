@@ -9,11 +9,13 @@ import engine.core.AbstractGame;
 import engine.core.GameController;
 import engine.core.Input;
 import engine.core.Renderer;
+import engine.core.audio.SoundClip;
 import engine.core.gfx.Image;
 
 public class game extends AbstractGame{
 
 	private Image image = new Image("/Background.png");
+	private SoundClip sound = new SoundClip("/song.wav");
 	private boolean background = true;
 	
 	public static void main(String args[]){
@@ -24,7 +26,10 @@ public class game extends AbstractGame{
 	@Override
 	public void update(GameController gc, float dt) {
 		if(Input.isKey(KeyEvent.VK_1)) System.out.println("hey!");
-		if(Input.isKeyPressed(KeyEvent.VK_2)) System.out.println("heey!");
+		if(Input.isKeyPressed(KeyEvent.VK_2)){
+			System.out.println("heey!");
+			sound.play();
+		}
 		if(Input.isKeyReleased(KeyEvent.VK_3)) System.out.println("hey!");
 		if(Input.isKeyPressed(KeyEvent.VK_F)) background = false;
 	}

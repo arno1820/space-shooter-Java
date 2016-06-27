@@ -27,7 +27,7 @@ public class Window {
 	public Window(GameController gc) {
 		//last parameter is how we are going to give the data to render the pixels (RRGGBB -> as integer(faster if manipulation is small) 
 		//or 255,255,255 as bit array)
-		image = new BufferedImage(gc.getWidth(), gc.getHeight(), BufferedImage.TYPE_4BYTE_ABGR);
+		image = new BufferedImage(gc.getWidth(), gc.getHeight(), BufferedImage.TYPE_INT_RGB);
 		
 		canvas = new Canvas();
 		Dimension s = new Dimension((int)(gc.getWidth()* gc.getScale()), (int)(gc.getHeight()* gc.getScale()));
