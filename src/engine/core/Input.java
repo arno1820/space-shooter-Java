@@ -45,6 +45,7 @@ public class Input implements KeyListener, MouseListener, MouseMotionListener, M
 	}
 	
 	public static boolean isButton(int ButtonCode){
+		System.out.println(ButtonCode);
 		return Buttons[ButtonCode];
 	}
 	
