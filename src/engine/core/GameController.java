@@ -19,6 +19,8 @@ public class GameController implements Runnable{
 	//updates for every second
 	private double frameCap = 1.0/60.0;
 	
+	private boolean lighting = false;
+	
 	public GameController(AbstractGame game) {
 		this.game = game;
 	}
@@ -85,7 +87,7 @@ public class GameController implements Runnable{
 			if(render){
 				renderer.clear();
 				game.render(this, renderer);
-				renderer.combineMaps();
+				if(lighting) renderer.combineMaps();
 				window.update();
 				frameRate++;
 				
@@ -141,6 +143,14 @@ public class GameController implements Runnable{
 
 	public Window getWindow() {
 		return window;
+	}
+
+	public boolean isLighting() {
+		return lighting;
+	}
+
+	public void setLighting(boolean lighting) {
+		this.lighting = lighting;
 	}
 
 }

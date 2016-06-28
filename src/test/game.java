@@ -15,7 +15,8 @@ import engine.core.gfx.Light;
 
 public class game extends AbstractGame{
 
-	private Image image = new Image("/Backgrounds/background.png");
+	private Image image = new Image("/Backgrounds/Background FLATcolor TEST.png");
+	private Image image2 = new Image("/Backgrounds/Stars See-Trough TEST.png");
 	private SoundClip sound = new SoundClip("/song.wav");
 	private boolean background = true;
 	private Light light = new Light(0xffffffff, 100);
@@ -23,6 +24,7 @@ public class game extends AbstractGame{
 	public static void main(String args[]){
 		GameController gc = new GameController(new game());
 		gc.start();
+		gc.setLighting(false);
 	}
 
 	@Override
@@ -40,6 +42,7 @@ public class game extends AbstractGame{
 	public void render(GameController gc, Renderer r) {
 		if(background){
 			r.drawImage(image, 0, 0);
+			r.drawImage(image2, 0, 0);
 			//r.setAmbientLight(0xffffffff);
 			//r.drawLight(light, 0, 0);
 		}

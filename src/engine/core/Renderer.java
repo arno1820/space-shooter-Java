@@ -25,7 +25,7 @@ public class Renderer {
 	//totaal geprogrameerd!
 	public void setPixel(int x, int y, int color){
 		
-		if((x < 0 || x >= width || y < 0 || y >= height) || color == 0xffff00ff) return;
+		if((x < 0 || x >= width || y < 0 || y >= height) || color == 16777215) return;
 		
 		pixels[x+y*width] = color;
 	}
