@@ -85,6 +85,7 @@ public class GameController implements Runnable{
 			if(render){
 				renderer.clear();
 				game.render(this, renderer);
+				renderer.combineMaps();
 				window.update();
 				frameRate++;
 				

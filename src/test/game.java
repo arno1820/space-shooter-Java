@@ -11,12 +11,14 @@ import engine.core.Input;
 import engine.core.Renderer;
 import engine.core.audio.SoundClip;
 import engine.core.gfx.Image;
+import engine.core.gfx.Light;
 
 public class game extends AbstractGame{
 
-	private Image image = new Image("/Background.png");
+	private Image image = new Image("/Backgrounds/Bg Starfield.png");
 	private SoundClip sound = new SoundClip("/song.wav");
 	private boolean background = true;
+	private Light light = new Light(0xff0000ff, 100);
 	
 	public static void main(String args[]){
 		GameController gc = new GameController(new game());
@@ -38,6 +40,7 @@ public class game extends AbstractGame{
 	public void render(GameController gc, Renderer r) {
 		if(background){
 			r.drawImage(image, 0, 0);
+			r.drawLight(light, 0, 0);
 		}
 		else{
 			r.clear();

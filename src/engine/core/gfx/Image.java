@@ -15,7 +15,7 @@ public class Image {
 		BufferedImage image = null;
 		
 		try {
-			image = ImageIO.read(Image.class.getResourceAsStream(path));
+			image = ImageIO.read(getClass().getResourceAsStream(path));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
