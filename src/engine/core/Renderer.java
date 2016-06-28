@@ -13,7 +13,7 @@ public class Renderer {
 	private int width, height;
 	private int[] pixels;
 	private int[] lightMap;
-	private int ambientLight = PixelAid.getPixelColor(1,0.1f,0.2f,0.3f);
+	private int ambientLight = 0xffffffff;
 	
 	public Renderer(GameController gc) {
 		this.width = gc.getWidth();
@@ -21,6 +21,7 @@ public class Renderer {
 		pixels = ((DataBufferInt) gc.getWindow().getImage().getRaster().getDataBuffer()).getData();
 		lightMap = new int[pixels.length];
 	}
+	
 	//totaal geprogrameerd!
 	public void setPixel(int x, int y, int color){
 		
@@ -57,7 +58,6 @@ public class Renderer {
 		
 	}
 	
-	
 	public void clear(){
 		//TODO RGB INVERSED??
 		for(int x = 0; x < width; x++){
@@ -84,6 +84,14 @@ public class Renderer {
 				setLightMap(x + offX, y + offY, light.getLightMap()[x+y*light.getDiameter()]);
 			}
 		}
+	}
+	
+	public int getAmbientLight() {
+		return ambientLight;
+	}
+	
+	public void setAmbientLight(int ambientLight) {
+		this.ambientLight = ambientLight;
 	}
 	
 }
