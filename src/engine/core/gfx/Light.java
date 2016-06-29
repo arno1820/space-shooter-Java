@@ -22,7 +22,7 @@ public class Light {
 					lightMap[x+y*diameter] = PixelAid.getColorPower(color, 1 - distance/radius);
 				}
 				else{
-					lightMap[x+y*diameter] = 0;
+					lightMap[x+y*diameter] = 0xff000000;
 				}
 			}
 		}
@@ -30,7 +30,7 @@ public class Light {
 	
 	public int getLightValue(int x, int y){
 		
-		if( x < 0 || x > diameter || y < 0 ||  y > diameter) return 0xff000000;
+		if( x < 0 || x >= diameter || y < 0 ||  y >= diameter) return 0xff000000;
 		else return lightMap[x+y*diameter];
 		
 	}
