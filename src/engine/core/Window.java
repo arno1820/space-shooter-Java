@@ -36,7 +36,7 @@ public class Window {
 		canvas.setPreferredSize(s);
 		
 		frame = new JFrame(gc.getTitle());
-		//makes that the program stops if you hit the close button
+		//makes that the program stop if you hit the close button
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new BorderLayout());
 		//zet de canvas in het midden van de frame
