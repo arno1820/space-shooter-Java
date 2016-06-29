@@ -14,12 +14,10 @@ public class Renderer {
 	private int width, height;
 	private int[] pixels;
 	private int[] lightMap;
-<<<<<<< HEAD
+
 	private ShadowType[] shadowMap;
-	private int ambientLight = 0xffffffff;
-=======
 	private int ambientLight = PixelAid.getPixelColor(1, 0.1f, 0.2f, 0.3f);
->>>>>>> origin/master
+
 	
 	public Renderer(GameController gc) {
 		this.width = gc.getWidth();
