@@ -13,7 +13,7 @@ public class Renderer {
 	private int width, height;
 	private int[] pixels;
 	private int[] lightMap;
-	private int ambientLight = 0xffffffff;
+	private int ambientLight = PixelAid.getPixelColor(1, 0.1f, 0.2f, 0.3f);
 	
 	public Renderer(GameController gc) {
 		this.width = gc.getWidth();
@@ -31,10 +31,10 @@ public class Renderer {
 	}
 	
 	public void setLightMap(int x, int y, int color){
-	
+		
 		if(x < 0 || x >= width || y < 0 || y >= height) return;
 	
-		lightMap[x+y*width] = PixelAid.getMax(color, lightMap[x+y*width]);
+		lightMap[x+y*width] = color; //PixelAid.getMax(color, lightMap[x+y*width]);
 	}
 
 	public void drawImage(Image image, int offX, int offY){

@@ -12,6 +12,7 @@ import engine.core.Renderer;
 import engine.core.audio.SoundClip;
 import engine.core.gfx.Image;
 import engine.core.gfx.Light;
+import engine.core.gfx.PixelAid;
 
 public class game extends AbstractGame{
 
@@ -19,12 +20,12 @@ public class game extends AbstractGame{
 	private Image image2 = new Image("/Backgrounds/Stars See-Trough TEST.png");
 	private SoundClip sound = new SoundClip("/song.wav");
 	private boolean background = true;
-	private Light light = new Light(0xffffffff, 100);
+	private Light light = new Light(0xffff0000, 100);
 	
 	public static void main(String args[]){
-		GameController gc = new GameController(new game());
+		GameController gc = new GameController(new game(), true, PixelAid.getPixelColor(1, 0.1f, 0.2f, 0.3f));
 		gc.start();
-		gc.setLighting(false);
+		
 	}
 
 	@Override
@@ -41,14 +42,16 @@ public class game extends AbstractGame{
 	@Override
 	public void render(GameController gc, Renderer r) {
 		if(background){
-			r.drawImage(image, 0, 0);
+			
+			//r.drawImage(image, 0, 0);
 			r.drawImage(image2, 0, 0);
+			r.drawLight(light, 50, 50);
 			//r.setAmbientLight(0xffffffff);
-			//r.drawLight(light, 0, 0);
 		}
 		else{
 			r.clear();
 		}
+		
 	}
 
 }

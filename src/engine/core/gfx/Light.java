@@ -22,7 +22,7 @@ public class Light {
 					lightMap[x+y*diameter] = PixelAid.getColorPower(color, 1 - distance/radius);
 				}
 				else{
-					lightMap[x+y*diameter] = 0;
+					lightMap[x+y*diameter] = 0xff000000;
 				}
 			}
 		}

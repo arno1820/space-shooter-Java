@@ -1,5 +1,8 @@
 package engine.core;
 
+import engine.core.gfx.PixelAid;
+import javafx.scene.AmbientLight;
+
 public class GameController implements Runnable{
 
 	private Thread thread;
@@ -20,10 +23,18 @@ public class GameController implements Runnable{
 	private double frameCap = 1.0/60.0;
 	
 	private boolean lighting = false;
+	private int ambientLight;
 	
 	public GameController(AbstractGame game) {
 		this.game = game;
 	}
+	
+	public GameController(AbstractGame game, boolean lighting, int ambientLight) {
+		this.game = game;
+		this.lighting = lighting;
+		this.ambientLight = ambientLight;
+	}
+	
 	
 	public void start(){
 		
@@ -31,12 +42,13 @@ public class GameController implements Runnable{
 		
 		window = new Window(this);
 		renderer = new Renderer(this);
+		if(lighting) renderer.setAmbientLight(ambientLight);
 		input = new Input(this);
 		thread = new Thread(this);
 		thread.run();
 		
 	}
-	
+
 	public void stop(){
 		if(!isRunning) return;
 		
@@ -152,5 +164,8 @@ public class GameController implements Runnable{
 	public void setLighting(boolean lighting) {
 		this.lighting = lighting;
 	}
-
+	
+	public Renderer getRenderer() {
+		return renderer;
+	}
 }

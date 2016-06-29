@@ -22,15 +22,17 @@ public class PixelAid {
 	}
 	
 	public static int getPixelColor(float a, float r, float g, float b){
-		return ((int)(a * 255f + 0.5f) << 24 |
-				(int)(r * 255f + 0.5f) << 16 |
+		return ((int)(r * 255f + 0.5f) << 16 |
 				(int)(g * 255f + 0.5f) << 8 |
 				(int)(b * 255f + 0.5f));
+		//(int)(a * 255f + 0.5f) << 24 |
 	}
 	
 	public static int getColorPower(int color, float power){
 		
-		return getPixelColor(getAlpha(color) * power,
+		//'getAlpha(color) * power' ipv '1'?
+		
+		return getPixelColor(1,
 						getRed(color) * power,
 						getGreen(color) * power,
 						getBlue(color) * power);
@@ -39,17 +41,17 @@ public class PixelAid {
 	
 	public static int getLightBlend(int color, int light, int ambientLight){
 		
-		float a = getAlpha(light);
+		//float a = getAlpha(light);
 		float r = getRed(light);
 		float g = getGreen(light);
 		float b = getBlue(light);
 		
-		if(a < getAlpha(ambientLight)) a = getAlpha(ambientLight);
+		//if(a < getAlpha(ambientLight)) a = getAlpha(ambientLight);
 		if(r < getRed(ambientLight)) r = getRed(ambientLight);
 		if(g < getGreen(ambientLight)) g = getGreen(ambientLight);
 		if(b < getBlue(ambientLight)) b = getBlue(ambientLight);
 		
-		return getPixelColor(a*getAlpha(color), r * getRed(color), g*getGreen(color), b*getBlue(color));
+		return getPixelColor(1, r * getRed(color), g*getGreen(color), b*getBlue(color));
 	}
 	
 	public static int getMax(int color0, int color1){
