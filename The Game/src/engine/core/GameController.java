@@ -117,6 +117,15 @@ public class GameController implements Runnable{
 		
 	}
 	
+	public void sleep(){
+		try {
+			thread.sleep(1);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	private void cleanUp(){
 		window.cleanUp();
 	}

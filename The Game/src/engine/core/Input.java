@@ -15,8 +15,10 @@ public class Input implements KeyListener, MouseListener, MouseMotionListener, M
 	//don't need to be static
 	private static boolean[] keys = new boolean[256];
 	private static boolean[] keysLast = new boolean[256];
+	
 	private static boolean[] Buttons = new boolean[5];
 	private static boolean[] ButtonsLast = new boolean[5];
+	
 	private static int mousex, mousey;
 	
 	public Input(GameController gc) {

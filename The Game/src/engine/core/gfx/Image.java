@@ -10,7 +10,8 @@ public class Image {
 	private int width, height;
 	private int[] pixels;
 	private ShadowType shadowType = ShadowType.NONE;
-	
+	private String path;
+
 	public Image(String path) {
 		
 		BufferedImage image = null;
