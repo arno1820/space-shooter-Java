@@ -113,6 +113,9 @@ public class Renderer {
 		int err = dx - dy;
 		int e2;
 		
+		float power = 1.0f;
+		boolean hit = false;
+		
 		while(true){
 			
 			
@@ -121,11 +124,22 @@ public class Renderer {
 			int sx2 = x0 - light.getRadius() + offX;
 			int sy2 = y0 - light.getRadius() + offY;
 			
+			if(power == 1){
+				
 			setLightMap( sx2 , sy2, light.getLightValue(x0, y0));
 			
+			}else{
+				
+				setLightMap(sx2, sy2, PixelAid.getColorPower(light.getLightValue(x0, y0), power));
+			
+			}
 			if(x0 == x1 && y0 == y1) break;
 			if(getShadowMap(sx2, sy2) == ShadowType.TOTAL) break;
-			
+			//if you reduce the amount of -= ... then it'll be easier to see
+			if(getShadowMap(sx2, sy2) == ShadowType.FADE) power -= 0.1f;
+			if(getShadowMap(sx2, sy2) == ShadowType.HALF && hit == false) { power /= 2; hit = true;}
+			if(getShadowMap(sx2, sy2) == ShadowType.NONE && hit == true)hit = false; 
+			if(power <= 0.1) break;
 			
 			e2 = 2*err;
 			
