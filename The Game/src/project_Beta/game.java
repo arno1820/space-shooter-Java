@@ -34,7 +34,7 @@ public class game extends AbstractGame{
 
 	@Override
 	public void update(GameController gc, float dt) {
-
+		this.gameState = gameState.updateGameState(gc, dt);
 	}
 
 	@Override
