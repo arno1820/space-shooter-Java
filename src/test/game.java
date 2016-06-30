@@ -25,17 +25,21 @@ public class game extends AbstractGame{
 	private Image currentBack = image;
 	private SoundClip sound = new SoundClip("/song.wav");
 	private boolean background = true;
-	private Light light = new Light(0xffff0000, 100);
+	private Light light = new Light(0xffffffff, 100);
 
 	
 	public static void main(String args[]){
+<<<<<<< HEAD
 		GameController gc = new GameController(new game(), true, PixelAid.getPixelColor(1, 0.2f, 0.2f, 0.2f));
+=======
+		GameController gc = new GameController(new game(), true, PixelAid.getPixelColor(1, 0.3f, 0.3f, 0.3f));
+>>>>>>> origin/master
 		gc.start();
 
 	}
 	
 	public game() {
-		image2.setShadowType(ShadowType.TOTAL);
+		image2.setShadowType(ShadowType.FADE);
 	}
 
 	@Override
