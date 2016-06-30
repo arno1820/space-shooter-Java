@@ -29,7 +29,7 @@ public class game extends AbstractGame{
 
 	
 	public static void main(String args[]){
-		GameController gc = new GameController(new game(), true, PixelAid.getPixelColor(1, 0.1f, 0.2f, 0.3f));
+		GameController gc = new GameController(new game(), true, PixelAid.getPixelColor(1, 0.2f, 0.2f, 0.2f));
 		gc.start();
 
 	}
@@ -59,10 +59,10 @@ public class game extends AbstractGame{
 	public void render(GameController gc, Renderer r) {
 		if(background){
 			
-			//r.drawImage(image, 0, 0);
+			r.drawImage(image, 0, 0);
 			r.drawImage(image2, 0, 0);
-			r.drawLight(light, 50, 50);
-			//r.setAmbientLight(0xffffffff);
+			r.drawLight(light, Input.getMouseX(), Input.getMouseY());
+			
 
 		}
 		else{

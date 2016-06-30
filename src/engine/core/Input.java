@@ -17,6 +17,7 @@ public class Input implements KeyListener, MouseListener, MouseMotionListener, M
 	private static boolean[] keysLast = new boolean[256];
 	private static boolean[] Buttons = new boolean[5];
 	private static boolean[] ButtonsLast = new boolean[5];
+	private static int mousex, mousey;
 	
 	public Input(GameController gc) {
 		this.gc = gc;
@@ -57,6 +58,14 @@ public class Input implements KeyListener, MouseListener, MouseMotionListener, M
 		return !Buttons[ButtonCode] && ButtonsLast[ButtonCode];
 	}
 	
+	public static int getMouseX(){
+		return mousex;
+	}
+	
+	public static int getMouseY(){
+		return mousey;
+	}
+	
 	@Override
 	public void mouseWheelMoved(MouseWheelEvent e) {
 		// TODO Auto-generated method stub
@@ -71,8 +80,9 @@ public class Input implements KeyListener, MouseListener, MouseMotionListener, M
 
 	@Override
 	public void mouseMoved(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		this.mousex = (int) (e.getX()/gc.getScale());
+		this.mousey = (int) (e.getY() / gc.getScale());
+				
 	}
 
 	@Override
