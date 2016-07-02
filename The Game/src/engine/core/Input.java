@@ -112,7 +112,7 @@ public class Input implements KeyListener, MouseListener, MouseMotionListener, M
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		Buttons[e.getButton()] = true;		
+		Buttons[e.getButton()] = false;		
 	}
 
 	@Override

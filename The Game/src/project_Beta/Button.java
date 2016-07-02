@@ -44,7 +44,7 @@ public class Button {
 		this.height = current.getHeight();
 	}
 	
-	public GameState updateButton(GameController gc, float dt) {
+	public GameState updateButton(GameController gc, float dt, GameState gs) {
 		
 		//hovering
 		if((Input.getMouseX() > x && Input.getMouseX() < x + width) && (Input.getMouseY() > y && Input.getMouseY() < y + height)){
@@ -71,6 +71,7 @@ public class Button {
 			current = iM.getImage(buttonClickPath);
 			if(timeToWait <= 0){
 				timeToWait = 10;
+				nextGameState.make(iM, gs);
 				return nextGameState;
 			}else{
 				timeToWait -= dt;

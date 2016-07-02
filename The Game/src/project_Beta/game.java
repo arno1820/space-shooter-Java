@@ -19,7 +19,8 @@ public class game extends AbstractGame{
 		GameController gc = new GameController(new game(), true, RGBCalc.getPixelColor(1, 0.2f, 0.2f, 0.2f));
 		gc.setTitle("Project Beta v0.1");
 		gc.setLighting(false);
-		gameState = new TitleScreen(gc.getImageManager());
+		gameState = new TitleScreen();
+		gameState.make(gc.getImageManager(), null);
 		gc.start();
 	}
 	
