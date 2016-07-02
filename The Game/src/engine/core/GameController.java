@@ -1,5 +1,6 @@
 package engine.core;
 
+import engine.core.gfx.ImageManager;
 import engine.core.gfx.RGBCalc;
 import javafx.scene.AmbientLight;
 
@@ -10,6 +11,7 @@ public class GameController implements Runnable{
 	private Window window;
 	private Renderer renderer;
 	private Input input;
+	private ImageManager imageManager;
 	
 	//to be changed! not alot of pixels -> small resolution (because cpu is going to render all)
 	private int width = 320, height = 180;
@@ -27,12 +29,14 @@ public class GameController implements Runnable{
 	
 	public GameController(AbstractGame game) {
 		this.game = game;
+		this.imageManager = new ImageManager();
 	}
 	
 	public GameController(AbstractGame game, boolean lighting, int ambientLight) {
 		this.game = game;
 		this.lighting = lighting;
 		this.ambientLight = ambientLight;
+		this.imageManager = new ImageManager();
 	}
 	
 	
@@ -47,6 +51,10 @@ public class GameController implements Runnable{
 		thread = new Thread(this);
 		thread.run();
 		
+	}
+
+	public ImageManager getImageManager() {
+		return imageManager;
 	}
 
 	public void stop(){

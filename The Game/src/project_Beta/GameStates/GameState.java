@@ -1,4 +1,4 @@
-package project_Beta;
+package project_Beta.GameStates;
 
 import engine.core.GameController;
 import engine.core.Renderer;

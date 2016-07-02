@@ -7,13 +7,9 @@ public class ImageManager {
 	//TODO check correct capacity
 	private HashMap<String, Image> imageMap = new HashMap<String, Image>();
 	
-	public ImageManager(){
-		
-		
-		
-	}
+	public ImageManager(){}
 	
-	public Image makeImage(String path){
+	public Image getImage(String path){
 		
 		if(imageMap.containsKey(path)) return imageMap.get(path);
 		
@@ -22,5 +18,15 @@ public class ImageManager {
 		return temp;
 		
 	}
+	
+	public void removeImage(String path){
+		
+		if(!imageMap.containsKey(path)) return;
+		
+		imageMap.remove(path);
+		
+	}
+	
+	
 	
 }
