@@ -31,7 +31,7 @@ public class Window {
 		
 		canvas = new Canvas();
 		Dimension s = new Dimension((int)(gc.getWidth()* gc.getScale()), (int)(gc.getHeight()* gc.getScale()));
-		//canvas.setPreferredSize(s);
+		canvas.setPreferredSize(s);
 		canvas.setMaximumSize(s);
 		canvas.setPreferredSize(s);
 		
@@ -48,6 +48,7 @@ public class Window {
 		//with this you can't rescale the window... LOOK INTO THIS!
 		frame.setResizable(true);
 		frame.setVisible(true);
+		frame.setResizable(false);
 		
 		//sets 1 buffer, 
 		//bufferstategy -> when an image is rendered, it draws it peace by peace, which make it flicker.
