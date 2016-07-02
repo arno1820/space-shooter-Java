@@ -41,6 +41,8 @@ public class Window {
 		frame.setLayout(new BorderLayout());
 		//zet de canvas in het midden van de frame
 		frame.add(canvas, BorderLayout.CENTER);
+		//to make frame Undecorated
+		//frame.setUndecorated(true);
 		//frame will become the size of the canvas
 		frame.pack();
 		//X = 0 and Y = 0, in het midden ipv links bovenaan

@@ -16,7 +16,7 @@ public class Exit implements GameState {
 
 	@Override
 	public void renderGamestate(GameController gc, Renderer r) {
-		r.drawImage(gc.getImageManager().getImage("/Backgrounds/Background.png"), 0, 0);
+		r.drawImage(gc.getImageManager().getImage("/Backgrounds/Background_MENU.png"), 0, 0);
 
 	}
 
