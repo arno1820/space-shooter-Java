@@ -1,15 +1,12 @@
 package project_Beta;
 
-import java.awt.event.KeyEvent;
 
-import com.sun.glass.ui.Application;
 
 import engine.core.GameController;
 import engine.core.Input;
 import engine.core.Renderer;
 import engine.core.audio.SoundClip;
 import engine.core.gfx.Image;
-import javafx.scene.input.MouseEvent;
 
 public class TitleScreen implements GameState {
 	

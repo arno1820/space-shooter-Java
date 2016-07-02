@@ -38,7 +38,6 @@ public class SoundClip {
 			VolumeControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

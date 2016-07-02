@@ -12,7 +12,7 @@ import engine.core.Renderer;
 import engine.core.audio.SoundClip;
 import engine.core.gfx.Image;
 import engine.core.gfx.Light;
-import engine.core.gfx.PixelAid;
+import engine.core.gfx.RGBCalc;
 import engine.core.gfx.ShadowType;
 
 
@@ -22,7 +22,7 @@ public class game extends AbstractGame{
 	
 	
 	public static void main(String args[]){
-		GameController gc = new GameController(new game(), true, PixelAid.getPixelColor(1, 0.2f, 0.2f, 0.2f));
+		GameController gc = new GameController(new game(), true, RGBCalc.getPixelColor(1, 0.2f, 0.2f, 0.2f));
 		gc.setTitle("Project Beta v0.1");
 		gc.setLighting(false);
 		gc.start();

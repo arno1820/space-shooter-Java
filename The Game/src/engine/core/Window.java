@@ -46,7 +46,6 @@ public class Window {
 		//X = 0 and Y = 0, in het midden ipv links bovenaan
 		////frame.setLocationRelativeTo(null);
 		//with this you can't rescale the window... LOOK INTO THIS!
-		frame.setResizable(true);
 		frame.setVisible(true);
 		frame.setResizable(false);
 		

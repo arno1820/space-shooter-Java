@@ -3,7 +3,7 @@ package engine.core;
 import java.awt.image.DataBufferByte;
 import java.awt.image.DataBufferInt;
 
-import engine.core.gfx.PixelAid;
+import engine.core.gfx.RGBCalc;
 import engine.core.gfx.ShadowType;
 import engine.core.gfx.Image;
 import engine.core.gfx.ImageTile;
@@ -16,7 +16,7 @@ public class Renderer {
 	private int[] lightMap;
 
 	private ShadowType[] shadowMap;
-	private int ambientLight = PixelAid.getPixelColor(1, 0.1f, 0.2f, 0.3f);
+	private int ambientLight = RGBCalc.getPixelColor(1, 0.1f, 0.2f, 0.3f);
 
 	
 	public Renderer(GameController gc) {
@@ -86,7 +86,7 @@ public class Renderer {
 	public void combineMaps(){
 		for(int x = 0; x < width; x++){
 			for(int y = 0; y < height; y++ ){
-				setPixel(x, y, PixelAid.getLightBlend(pixels[x+y*width], lightMap[x+y*width], ambientLight), shadowMap[x + y *width]);
+				setPixel(x, y, RGBCalc.getLightBlend(pixels[x+y*width], lightMap[x+y*width], ambientLight), shadowMap[x + y *width]);
 			}
 		}
 	}
@@ -130,7 +130,7 @@ public class Renderer {
 			
 			}else{
 				
-				setLightMap(sx2, sy2, PixelAid.getColorPower(light.getLightValue(x0, y0), power));
+				setLightMap(sx2, sy2, RGBCalc.getColorPower(light.getLightValue(x0, y0), power));
 			
 			}
 			if(x0 == x1 && y0 == y1) break;

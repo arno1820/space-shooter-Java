@@ -1,6 +1,6 @@
 package engine.core.gfx;
 
-public class PixelAid {
+public class RGBCalc {
 	
 	
 	//what this(getRed) does for example: 01100101 00101010 01101111 0101101 (maybe incorrect color, but who cares... :p)
@@ -10,9 +10,11 @@ public class PixelAid {
 	public static float getRed(int color){
 		return (0xff &(color >> 16)) /255f;
 	}
+	
 	public static float getGreen(int color){
 		return (0xff &(color >> 8)) /255f;
 	}
+	
 	public static float getBlue(int color){
 		return (0xff & color) /255f;
 	}

@@ -1,6 +1,6 @@
 package engine.core;
 
-import engine.core.gfx.PixelAid;
+import engine.core.gfx.RGBCalc;
 import javafx.scene.AmbientLight;
 
 public class GameController implements Runnable{
@@ -121,7 +121,6 @@ public class GameController implements Runnable{
 		try {
 			thread.sleep(1);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

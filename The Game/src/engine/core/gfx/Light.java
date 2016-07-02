@@ -19,7 +19,7 @@ public class Light {
 								Math.sqrt( (x - radius) * (x - radius) + (y - radius) * (y-radius) );
 				
 				if(distance < radius){
-					lightMap[x+y*diameter] = PixelAid.getColorPower(color, 1 - distance/radius);
+					lightMap[x+y*diameter] = RGBCalc.getColorPower(color, 1 - distance/radius);
 				}
 				else{
 					lightMap[x+y*diameter] = 0xff000000;
