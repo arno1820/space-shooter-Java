@@ -13,7 +13,9 @@ import project_Beta.GameStates.TitleScreen;
 public class game extends AbstractGame{
 
 	private static GameState gameState;
-	
+	private static GameController gc;
+	private double height;
+	private double width;
 	
 	public static void main(String args[]){
 		GameController gc = new GameController(new game(), true, RGBCalc.getPixelColor(1, 0.2f, 0.2f, 0.2f));
@@ -22,14 +24,16 @@ public class game extends AbstractGame{
 		gameState = new TitleScreen();
 		gameState.make(gc.getImageManager(), null);
 		gc.start();
-	}
-	
-	public game() {
+		game.gc = gc;
 		
 	}
+	
+	public game() {}
 
 	@Override
 	public void update(GameController gc, float dt) {
+		height = gc.getHeight();
+		width = gc.getWidth();
 		game.gameState = gameState.updateGameState(gc, dt);
 	}
 
@@ -37,5 +41,23 @@ public class game extends AbstractGame{
 	public void render(GameController gc, Renderer r) {
 		gameState.renderGamestate(gc, r);
 	}
+
+	public double getHeight() {
+		return height;
+	}
+
+	public void setHeight(double height) {
+		this.height = height;
+	}
+
+	public double getWidth() {
+		return width;
+	}
+
+	public void setWidth(double width) {
+		this.width = width;
+	}
+	
+	
 
 }

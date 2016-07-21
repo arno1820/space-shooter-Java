@@ -27,7 +27,7 @@ public class TitleScreen extends GameState {
 		this.background = iM.getImage("/Backgrounds/Background_MENU.png");
 		this.title = iM.getImage("/Menu/Title.png");
 		
-		super.buttonList.add(new Button("/Menu/Play_Button.png", "/Menu/Play_ButtonHOVER.png", "/Menu/Play_ButtonPRESS.png", sound, new Play(), 5, 38, iM));
+		super.buttonList.add(new Button("/Menu/Play_Button.png", "/Menu/Play_ButtonHOVER.png", "/Menu/Play_ButtonPRESS.png", sound, new SelectShip(), 5, 38, iM));
 		super.buttonList.add(new Button("/Menu/Options_Button.png", "/Menu/Options_ButtonHOVER.png", "/Menu/Options_ButtonPRESS.png", sound, new Options(), 5, 53, iM));
 		super.buttonList.add(new Button("/Menu/Index_Button.png", "/Menu/Index_ButtonHOVER.png", "/Menu/Index_ButtonPRESS.png", sound, new Index(), 5, 68, iM));
 		super.buttonList.add(new Button("/Menu/Exit_Button.png", "/Menu/Exit_ButtonHOVER.png", "/Menu/Exit_ButtonPRESS.png", sound, new Exit(), 5, 83, iM));

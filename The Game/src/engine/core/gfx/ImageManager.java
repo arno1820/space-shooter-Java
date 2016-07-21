@@ -2,13 +2,16 @@ package engine.core.gfx;
 
 import java.util.HashMap;
 
+import engine.core.GameController;
+
 public class ImageManager {
 	
 	//TODO check correct capacity
 	private HashMap<String, Image> imageMap = new HashMap<String, Image>();
+	private GameController gc;
 	
-	public ImageManager(){}
-	
+	public ImageManager(GameController gc){this.gc = gc;}
+
 	public Image getImage(String path){
 		
 		if(imageMap.containsKey(path)) return imageMap.get(path);
@@ -25,6 +28,10 @@ public class ImageManager {
 		
 		imageMap.remove(path);
 		
+	}
+	
+	public GameController getGc() {
+		return gc;
 	}
 	
 	

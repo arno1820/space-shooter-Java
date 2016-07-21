@@ -4,11 +4,15 @@ import engine.core.GameController;
 import engine.core.Renderer;
 import engine.core.gfx.ImageManager;
 
-public class Play extends GameState {
+public class SelectShip extends GameState {
 
+	private ImageManager iM;
+	
 	@Override
 	public GameState updateGameState(GameController gc, float dt) {
-		return this;
+		GameState ngs = new Level();
+		ngs.make(iM, this);
+		return ngs;
 	}
 
 	@Override
@@ -20,7 +24,7 @@ public class Play extends GameState {
 
 	@Override
 	protected void makeSub(ImageManager iM, GameState prev) {
-		// TODO Auto-generated method stub
+		this.iM = iM;
 		
 	}
 
