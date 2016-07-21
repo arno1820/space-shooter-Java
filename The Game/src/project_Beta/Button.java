@@ -22,7 +22,7 @@ public class Button {
 	private SoundClip sound;
 	private boolean sPlayed = false;
 	
-	private int timeToWait = 10;
+	private double timeToWait = 0.25;
 	
 	public Button(String button, String buttonHover, String buttonClick, SoundClip sound, GameState nextGameState, int Xlocation, int Ylocation, ImageManager iM){
 		
@@ -53,8 +53,6 @@ public class Button {
 			
 			//Click
 			if(Input.isButtonPressed(java.awt.event.MouseEvent.BUTTON1)) {
-				current = iM.getImage(buttonClickPath);
-				System.out.println("EY EY");
 				timeToWait -= dt;
 			}
 			
@@ -67,10 +65,10 @@ public class Button {
 			sPlayed = false;
 		}
 		
-		if(timeToWait != 10){
+		if(timeToWait != 0.25){
 			current = iM.getImage(buttonClickPath);
 			if(timeToWait <= 0){
-				timeToWait = 10;
+				timeToWait = 0.25;
 				nextGameState.make(iM, gs);
 				return nextGameState;
 			}else{

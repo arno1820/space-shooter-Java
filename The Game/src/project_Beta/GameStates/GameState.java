@@ -10,12 +10,19 @@ import project_Beta.Button;
 public abstract class GameState {
 
 	protected ArrayList<Button> buttonList = new ArrayList<Button>();
+	private boolean hasBeenMade = false;
 	
 	public abstract GameState updateGameState(GameController gc, float dt);
 	
 	public abstract void renderGamestate(GameController gc, Renderer r);
 	
-	public abstract void make(ImageManager iM, GameState prev);
+	public void make(ImageManager iM, GameState prev){
+		if(this.hasBeenMade) return;
+		this.hasBeenMade = true;
+		this.makeSub(iM, prev);
+	}
+	
+	protected abstract void makeSub(ImageManager iM, GameState prev);
 	
 	protected GameState updateButtons(ArrayList<Button> buttonList, GameController gc, float dt){
 		

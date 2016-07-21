@@ -21,7 +21,7 @@ public class TitleScreen extends GameState {
 	public TitleScreen(){}
 	
 	@Override
-	public void make(ImageManager iM, GameState prev) {
+	protected void makeSub(ImageManager iM, GameState prev) {
 		
 		this.iM = iM;
 		this.background = iM.getImage("/Backgrounds/Background_MENU.png");

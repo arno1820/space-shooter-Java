@@ -19,7 +19,7 @@ public class Play extends GameState {
 	}
 
 	@Override
-	public void make(ImageManager iM, GameState prev) {
+	protected void makeSub(ImageManager iM, GameState prev) {
 		// TODO Auto-generated method stub
 		
 	}

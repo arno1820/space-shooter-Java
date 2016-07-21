@@ -30,7 +30,7 @@ public class Options extends GameState {
 	}
 
 	@Override
-	public void make(ImageManager iM, GameState prev) {
+	protected void makeSub(ImageManager iM, GameState prev) {
 		this.iM = iM;
 		Image temp = iM.getImage("/Menu/Cross.png");
 		int width = temp.getWidth();

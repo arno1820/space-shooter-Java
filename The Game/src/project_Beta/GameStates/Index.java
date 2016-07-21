@@ -37,7 +37,7 @@ public class Index extends GameState {
 	}
 
 	@Override
-	public void make(ImageManager iM, GameState prev) {
+	protected void makeSub(ImageManager iM, GameState prev) {
 		
 		this.iM = iM;
 		this.background = iM.getImage("/Backgrounds/Background_MENU.png");

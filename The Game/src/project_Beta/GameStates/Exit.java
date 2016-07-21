@@ -22,6 +22,6 @@ public class Exit extends GameState {
 	}
 
 	@Override
-	public void make(ImageManager iM, GameState prev) {}
+	protected void makeSub(ImageManager iM, GameState prev) {}
 
 }
