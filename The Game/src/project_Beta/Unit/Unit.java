@@ -5,6 +5,9 @@ import project_Beta.Position;
 
 public abstract class Unit {
 	
+	int frontalSpeed = 0;
+	int sidewiseSpeed = 0;
+	int backwiseSpeed = 0;
 	int health;
 	Position position;
 

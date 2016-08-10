@@ -41,6 +41,21 @@ public class Position {
 			this.y = y;
 		}
 	}
+	
+	public void setPositionOutside(double x, double y){
+		
+		this.setXOutside(x);
+		this.setYOutside(y);
+	}
+
+	public void setXOutside(double x) {
+		this.x = x;
+	}
+
+	public void setYOutside(double y) {
+		this.y = y;
+	}
+	
 
 	public double getX() {
 		return x;

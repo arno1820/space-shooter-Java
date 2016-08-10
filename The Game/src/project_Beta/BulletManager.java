@@ -10,4 +10,7 @@ public class BulletManager {
 	// bullet A on position b has vector on location 2b
 	private ArrayList<Double> vectorList;
 	
+	
+	
+	
 }

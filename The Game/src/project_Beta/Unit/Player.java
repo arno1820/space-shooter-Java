@@ -39,7 +39,7 @@ public class Player extends Unit {
 			System.out.println("pew pew");
 		}
 		
-		System.out.println(position.getX() +"y:" + position.getY());
+		//System.out.println(position.getX() +"y:" + position.getY());
 		
 	}
 	@Override
