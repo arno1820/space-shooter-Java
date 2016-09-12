@@ -16,46 +16,58 @@ public class Level extends GameState {
 	private Player player;
 	private ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 	private int TIMER = 50;
+	private int wave = 0;
 	
 	
 	@Override
 	public GameState updateGameState(GameController gc, float dt) {
 		
 		player.updateUnit(dt);
-		if(!enemies.isEmpty()) enemies.get(0).updateUnit(dt);;
-		if(TIMER == 0){
-			
-			Random rand = new Random();
-			
-			int randomX = 320 + rand.nextInt(20);
-			int randomY = rand.nextInt(180);
-			
-			enemies.add(new TinyUnit(iM.getImage("/Enemies/EM_Fighter.png"), randomX, randomY, 3, 4, gc));
-			randomX = 100 + rand.nextInt(220);
-			randomY = rand.nextInt(180);
-			enemies.get(0).SetDestination(randomX, randomY);
-			TIMER = -1;
+		updateWave(gc);
+		if(!enemies.isEmpty()){
+		
+			for(Enemy enemy : enemies){
+				enemy.updateUnit(dt);
+			}
 		}
-		
-		TIMER--;
-		
 		return this;
 	}
 
 	@Override
 	public void renderGamestate(GameController gc, Renderer r) {
+		
 		r.drawImage(background,0,0);
 		player.renderUnit(r);
-		if(!enemies.isEmpty()) enemies.get(0).renderUnit(r);
+		
+		if(!enemies.isEmpty()){
+			
+			for(Enemy enemy : enemies){
+				enemy.renderUnit(r);
+			}
+		}
 	}
 
 	@Override
 	protected void makeSub(ImageManager iM, GameState prev) {
 		this.iM = iM;
 		this.background = iM.getImage("/Backgrounds/Background_MENU.png");
-		
 		this.player = new Player(iM.getImage("/PlayerShips/Blue.png"), 20, 90, iM.getGc());
 
+	}	
+	
+	private void updateWave(GameController gc){
+		
+		Random rand = new Random();
+		
+		
+		if(enemies.isEmpty()){
+			for(int i = wave; i > 0; i--){
+				enemies.add(new TinyUnit(iM.getImage("/Enemies/EM_Fighter.png"), 320 + rand.nextInt(20), rand.nextInt(180), 4, 3, gc));
+				enemies.get(i-1).SetDestination(100 + rand.nextInt(220), rand.nextInt(180));
+			}
+			wave++;
+		}
+		
 	}
-
+	
 }
