@@ -6,7 +6,6 @@ import engine.core.GameController;
 
 public class ImageManager {
 	
-	//TODO check correct capacity
 	private HashMap<String, Image> imageMap = new HashMap<String, Image>();
 	private GameController gc;
 	

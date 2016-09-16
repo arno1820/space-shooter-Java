@@ -2,6 +2,8 @@ package project_Beta.Unit;
 
 import engine.core.Renderer;
 import project_Beta.Position;
+import project_Beta.GameStates.GameState;
+import project_Beta.GameStates.Level;
 
 public abstract class Unit {
 	
@@ -10,9 +12,14 @@ public abstract class Unit {
 	int backwiseSpeed = 0;
 	int health;
 	Position position;
+	Level level;
 
 	public abstract void updateUnit(double dt);
 	
 	public abstract void renderUnit(Renderer r);
+	
+	public Position getPosition(){
+		return this.position;
+	}
 	
 }

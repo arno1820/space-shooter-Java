@@ -15,7 +15,6 @@ public class Level extends GameState {
 	private Image background;
 	private Player player;
 	private ArrayList<Enemy> enemies = new ArrayList<Enemy>();
-	private int TIMER = 50;
 	private int wave = 0;
 	
 	
@@ -51,7 +50,7 @@ public class Level extends GameState {
 	protected void makeSub(ImageManager iM, GameState prev) {
 		this.iM = iM;
 		this.background = iM.getImage("/Backgrounds/Background_MENU.png");
-		this.player = new Player(iM.getImage("/PlayerShips/Blue.png"), 20, 90, iM.getGc());
+		this.player = new Player(iM.getImage("/PlayerShips/Blue.png"), 20, 90, iM.getGc(), this);
 
 	}	
 	
@@ -59,15 +58,21 @@ public class Level extends GameState {
 		
 		Random rand = new Random();
 		
-		
+		//TODO: Still very basic, needs more!
 		if(enemies.isEmpty()){
 			for(int i = wave; i > 0; i--){
-				enemies.add(new TinyUnit(iM.getImage("/Enemies/EM_Fighter.png"), 320 + rand.nextInt(20), rand.nextInt(180), 4, 3, gc));
+				enemies.add(new TinyUnit(iM.getImage("/Enemies/EM_Fighter.png"), 320 + rand.nextInt(20), rand.nextInt(180), 4, 3, gc, this));
 				enemies.get(i-1).SetDestination(100 + rand.nextInt(220), rand.nextInt(180));
 			}
 			wave++;
 		}
 		
+	}
+	
+	public ArrayList<Unit> getUnitList(){
+		ArrayList<Unit> unitList = (ArrayList<Unit>) enemies.clone();
+		unitList.add(player);
+		return unitList;
 	}
 	
 }
