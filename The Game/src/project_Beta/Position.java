@@ -33,7 +33,7 @@ public class Position {
 		this.width = width;
 		useDefaultBoundaries = true;
 	}
-
+	
 	public Position(double x, double y, Double minX, Double maxX, Double minY, Double maxY, GameController gc){
 		this.x = x;
 		this.y = y;
@@ -66,17 +66,17 @@ public class Position {
 	}
 
 	public void setX(double x) {
-		if(!(x > gc.getWidth()-width/4 || x < -width/4) || !useDefaultBoundaries){
+		if(useDefaultBoundaries && (x < gc.getWidth()-width/4 && x > -width/4)){
 			this.x = x;
-		}else if(!useDefaultBoundaries && !(x > Boundaries.get(1)-width/4 || x < Boundaries.get(0)-width/4)){
+		}else if(!useDefaultBoundaries && (x < Boundaries.get(1)-width/4 && x > Boundaries.get(0)-width/4)){
 			this.x = x;
 		}
 	}
 
 	public void setY(double y) {
-		if(!(y > gc.getHeight()-height/2 || y < -height/2) || !useDefaultBoundaries){
+		if(useDefaultBoundaries && (y < gc.getHeight()-height/2 && y > -height/2)){
 			this.y = y;
-		}else if(!useDefaultBoundaries && !(x > Boundaries.get(3)-height/2 || y < Boundaries.get(2)-height/2)){
+		}else if(!useDefaultBoundaries && (y < Boundaries.get(3)-height/2 && y > Boundaries.get(2)-height/2)){
 			this.y = y;
 		}
 	}
@@ -111,8 +111,16 @@ public class Position {
 		return y;
 	}
 
+	//a hitBox is:
+	//	 (1)+------------
+	//		|			|
+	//		|			|
+	//		|			|
+	//		------------+(2)
+	// where the + is a 'hitbox-point' 
+	//the return value == [X-location of (1)+, X-location of (2)+, Y-location of (1)+, Y-location of (2)+]
 	public static double[] createHitbox(double x, double y, double width, double height){
-		double[] hitbox = {x,y,width,height};
+		double[] hitbox = {x-width/2,x+width/2,y-height/2,y+height/2};
 		return hitbox;
 
 	}
@@ -123,12 +131,14 @@ public class Position {
 
 	public boolean hitboxCollision(double[] hitbox){
 
-		if((hitbox[0] + hitbox[2]/2 > this.x - width/2 ) || hitbox[0] - hitbox[2]/2 < this.x - width/2){
-			if(hitbox[1] + hitbox[3]/2 > this.y - height/2 || hitbox[1] - hitbox[3]/2 < this.y + height/2){
-				return true;
-			}
-		}
-		return false;
+		double[] thisHitbox = this.getHitbox();
+		int faults = 0;
+		
+		if(!(hitbox[0] > thisHitbox[1] || hitbox[1] < thisHitbox[0])) faults +=1;
+		if(!(hitbox[2] > thisHitbox[3] || hitbox[3] < thisHitbox[2])) faults +=1;
+		if(faults == 2) return true;
+		else return false;
+		
 
 	}
 

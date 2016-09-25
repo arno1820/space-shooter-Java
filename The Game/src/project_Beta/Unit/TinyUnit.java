@@ -19,7 +19,7 @@ public class  TinyUnit extends Enemy {
 		super.level = level;
 		this.looks = looks;
 		
-		super.position = new Position(width, height, x, y, (double) 0, (double)gc.getHeight(),(double) 0,(double) gc.getWidth() + width, gc);
+		super.position = new Position(width, height, x, y,(double) 0,(double) gc.getWidth() + 20, (double) 0, (double)gc.getHeight(), gc);
 		super.frontalSpeed = 80;
 		super.sidewiseSpeed = 70;
 		super.backwiseSpeed = 40;
