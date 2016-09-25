@@ -19,6 +19,8 @@ public class  TinyUnit extends Enemy {
 		super.level = level;
 		this.looks = looks;
 		
+		super.health = 2;
+		
 		super.position = new Position(width, height, x, y,(double) 0,(double) gc.getWidth() + 20, (double) 0, (double)gc.getHeight(), gc);
 		super.frontalSpeed = 80;
 		super.sidewiseSpeed = 70;
@@ -98,14 +100,25 @@ public class  TinyUnit extends Enemy {
 				moveToLocation(dt);
 			}
 		}
-		
-		System.out.println(position.getX() +"y:" + position.getY());
-		
+				
 	}
 
 	@Override
 	public void renderUnit(Renderer r) {
 		r.drawImage(looks, (int)super.position.getX(), (int)super.position.getY());
+	}
+
+	@Override
+	public void hit() {
+		// TODO hit van tinyunit
+		// dit is een voorlopige implementatie!
+		
+		super.health -= 1;
+		if(super.health <=0){
+			super.level.deleteUnit(this);
+			System.out.println("DEATH");
+		}
+		
 	}
 	
 	

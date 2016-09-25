@@ -12,8 +12,8 @@ public class Position {
 	private GameController gc;
 	private double x;
 	private double y;
-	private double width;
-	private double height;
+	private double width = 0;
+	private double height = 0;
 
 	private boolean useDefaultBoundaries;
 	private ArrayList<Double> Boundaries =  new ArrayList<Double>();
@@ -81,36 +81,7 @@ public class Position {
 		}
 	}
 
-//	public void setPosition(double x, double y, Level level, Unit thisUnit){
-//
-//		this.setX(x, level, thisUnit);
-//		this.setY(y, level, thisUnit);
-//	}
-//
-//	public void setX(double x, Level level, Unit thisUnit) {
-//		if(!(x > gc.getWidth()-width/4 || x < -width/4) || !useDefaultBoundaries){
-//			this.x = x;
-//		}else if(!useDefaultBoundaries && !(x > Boundaries.get(1)-width/4 || x < Boundaries.get(0)-width/4)){
-//			this.x = x;
-//		}
-//	}
-//
-//	public void setY(double y, Level level, Unit thisUnit) {
-//		if(!(y > gc.getHeight()-height/2 || y < -height/2) || !useDefaultBoundaries){
-//			this.y = y;
-//		}else if(!useDefaultBoundaries && !(x > Boundaries.get(3)-height/2 || y < Boundaries.get(2)-height/2)){
-//			this.y = y;
-//		}
-//	}
-
-	public double getX() {
-		return x;
-	}
-
-	public double getY() {
-		return y;
-	}
-
+	//TODO: kleine afwijking op de hitbox, reden in nog niet duidelijk!
 	//a hitBox is:
 	//	 (1)+------------
 	//		|			|
@@ -122,7 +93,6 @@ public class Position {
 	public static double[] createHitbox(double x, double y, double width, double height){
 		double[] hitbox = {x-width/2,x+width/2,y-height/2,y+height/2};
 		return hitbox;
-
 	}
 
 	public double[] getHitbox(){
@@ -139,10 +109,9 @@ public class Position {
 		if(faults == 2) return true;
 		else return false;
 		
-
 	}
 
-	public boolean checkHitBoxCollision(Level level, Unit thisUnit){
+	public boolean checkHitBoxCollision(Level level, Object thisUnit){
 
 		ArrayList<Unit> units = level.getUnitList();
 
@@ -154,7 +123,46 @@ public class Position {
 			}
 		}
 		return false;
+	}
 
+	public double getWidth() {
+		return width;
+	}
+
+	public void setWidth(double width) {
+		this.width = width;
+	}
+
+	public double getHeight() {
+		return height;
+	}
+
+	public void setHeight(double height) {
+		this.height = height;
+	}
+
+	public boolean isUseDefaultBoundaries() {
+		return useDefaultBoundaries;
+	}
+
+	public void setUseDefaultBoundaries(boolean useDefaultBoundaries) {
+		this.useDefaultBoundaries = useDefaultBoundaries;
+	}
+
+	public ArrayList<Double> getBoundaries() {
+		return Boundaries;
+	}
+
+	public void setBoundaries(ArrayList<Double> boundaries) {
+		Boundaries = boundaries;
+	}
+
+	public double getX() {
+		return x;
+	}
+
+	public double getY() {
+		return y;
 	}
 
 }

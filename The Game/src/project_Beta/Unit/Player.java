@@ -8,12 +8,14 @@ import engine.core.Renderer;
 import engine.core.gfx.Image;
 import engine.core.gfx.ImageManager;
 import project_Beta.Position;
+import project_Beta.Bullets.BasicBullet;
 import project_Beta.GameStates.GameState;
 import project_Beta.GameStates.Level;
 
 public class Player extends Unit {
 	
 	private Image player;
+	private double cooldown = 0;
 	
 	public Player(Image image, double x, double y, GameController gc, Level level){
 		
@@ -43,6 +45,10 @@ public class Player extends Unit {
 		}
 		if(Input.isKey(KeyEvent.VK_SPACE)){
 			System.out.println("pew pew");
+			if(cooldown < 0){
+				level.addBullet(new BasicBullet(position.getX() + position.getWidth()/2, position.getY(), this, level, level.getGc()));
+				cooldown = 0.25;
+			}else cooldown -= dt;
 		}
 		
 		if(super.position.checkHitBoxCollision(super.level, this)){
@@ -54,6 +60,11 @@ public class Player extends Unit {
 	@Override
 	public void renderUnit(Renderer r) {
 		r.drawImage(player, (int)super.position.getX(), (int)super.position.getY());
+		
+	}
+	@Override
+	public void hit() {
+		// TODO Hit van player
 		
 	}
 	
