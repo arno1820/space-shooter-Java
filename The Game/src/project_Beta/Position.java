@@ -14,17 +14,17 @@ public class Position {
 	private double y;
 	private double width;
 	private double height;
-	
+
 	private boolean useDefaultBoundaries;
 	private ArrayList<Double> Boundaries =  new ArrayList<Double>();
-	
+
 	public Position(double x, double y, GameController gc){
 		this.x = x;
 		this.y = y;
 		this.gc = gc;
 		useDefaultBoundaries = true;
 	}
-	
+
 	public Position(double width, double height, double x, double y, GameController gc){
 		this.x = x;
 		this.y = y;
@@ -33,7 +33,7 @@ public class Position {
 		this.width = width;
 		useDefaultBoundaries = true;
 	}
-	
+
 	public Position(double x, double y, Double minX, Double maxX, Double minY, Double maxY, GameController gc){
 		this.x = x;
 		this.y = y;
@@ -44,7 +44,7 @@ public class Position {
 		Boundaries.add(3, maxY);
 		useDefaultBoundaries = false;
 	}
-	
+
 	public Position(double width, double height, double x, double y, Double minX, Double maxX, Double minY, Double maxY, GameController gc){
 		this.x = x;
 		this.y = y;
@@ -57,10 +57,10 @@ public class Position {
 		Boundaries.add(3, maxY);
 		useDefaultBoundaries = false;
 	}
-	
-	
+
+
 	public void setPosition(double x, double y){
-		
+
 		this.setX(x);
 		this.setY(y);
 	}
@@ -79,10 +79,10 @@ public class Position {
 		}else if(!useDefaultBoundaries && !(x > Boundaries.get(3)-height/2 || y < Boundaries.get(2)-height/2)){
 			this.y = y;
 		}
-	}	
+	}
 
 //	public void setPosition(double x, double y, Level level, Unit thisUnit){
-//		
+//
 //		this.setX(x, level, thisUnit);
 //		this.setY(y, level, thisUnit);
 //	}
@@ -101,8 +101,8 @@ public class Position {
 //		}else if(!useDefaultBoundaries && !(x > Boundaries.get(3)-height/2 || y < Boundaries.get(2)-height/2)){
 //			this.y = y;
 //		}
-//	}	
-	
+//	}
+
 	public double getX() {
 		return x;
 	}
@@ -110,41 +110,41 @@ public class Position {
 	public double getY() {
 		return y;
 	}
-	
+
 	public static double[] createHitbox(double x, double y, double width, double height){
 		double[] hitbox = {x,y,width,height};
 		return hitbox;
-		
+
 	}
-	
+
 	public double[] getHitbox(){
 		return createHitbox(this.x, this.y, this.width, this.height);
 	}
-	
+
 	public boolean hitboxCollision(double[] hitbox){
-		
+
 		if((hitbox[0] + hitbox[2]/2 > this.x - width/2 ) || hitbox[0] - hitbox[2]/2 < this.x - width/2){
 			if(hitbox[1] + hitbox[3]/2 > this.y - height/2 || hitbox[1] - hitbox[3]/2 < this.y + height/2){
 				return true;
 			}
 		}
 		return false;
-		
+
 	}
-	
+
 	public boolean checkHitBoxCollision(Level level, Unit thisUnit){
-		
+
 		ArrayList<Unit> units = level.getUnitList();
-		
+
 		for(Unit unit: units){
 			if(unit == thisUnit){
-				
+
 			}else if(this.hitboxCollision(unit.getPosition().getHitbox())){
 				return true;
 			}
 		}
 		return false;
-		
+
 	}
-	
+
 }
