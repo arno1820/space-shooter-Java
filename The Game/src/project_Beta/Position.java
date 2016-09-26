@@ -2,6 +2,8 @@ package project_Beta;
 
 import java.util.ArrayList;
 
+import com.sun.prism.Image;
+
 import engine.core.GameController;
 import project_Beta.GameStates.GameState;
 import project_Beta.GameStates.Level;
@@ -66,15 +68,15 @@ public class Position {
 	}
 
 	public void setX(double x) {
-		if(useDefaultBoundaries && (x < gc.getWidth()-width/4 && x > -width/4)){
+		if(useDefaultBoundaries && (x < gc.getWidth()-width && x > 0)){
 			this.x = x;
-		}else if(!useDefaultBoundaries && (x < Boundaries.get(1)-width/4 && x > Boundaries.get(0)-width/4)){
+		}else if(!useDefaultBoundaries && (x < Boundaries.get(1)-width && x > Boundaries.get(0)-width/4)){
 			this.x = x;
 		}
 	}
 
 	public void setY(double y) {
-		if(useDefaultBoundaries && (y < gc.getHeight()-height/2 && y > -height/2)){
+		if(useDefaultBoundaries && (y < gc.getHeight()-height && y > 0)){
 			this.y = y;
 		}else if(!useDefaultBoundaries && (y < Boundaries.get(3)-height/2 && y > Boundaries.get(2)-height/2)){
 			this.y = y;
@@ -85,13 +87,13 @@ public class Position {
 	//a hitBox is:
 	//	 (1)+------------
 	//		|			|
-	//		|			|
+	//		|	    	|
 	//		|			|
 	//		------------+(2)
 	// where the + is a 'hitbox-point' 
 	//the return value == [X-location of (1)+, X-location of (2)+, Y-location of (1)+, Y-location of (2)+]
 	public static double[] createHitbox(double x, double y, double width, double height){
-		double[] hitbox = {x-width/2,x+width/2,y-height/2,y+height/2};
+		double[] hitbox = {x,x+width,y,y+height};
 		return hitbox;
 	}
 
@@ -106,7 +108,9 @@ public class Position {
 		
 		if(!(hitbox[0] > thisHitbox[1] || hitbox[1] < thisHitbox[0])) faults +=1;
 		if(!(hitbox[2] > thisHitbox[3] || hitbox[3] < thisHitbox[2])) faults +=1;
-		if(faults == 2) return true;
+		if(faults == 2) {
+			return true;
+		}
 		else return false;
 		
 	}

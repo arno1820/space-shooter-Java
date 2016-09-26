@@ -1,6 +1,7 @@
 package project_Beta.Unit;
 
 import java.awt.event.KeyEvent;
+import java.util.Random;
 
 import engine.core.GameController;
 import engine.core.Input;
@@ -13,6 +14,7 @@ import project_Beta.GameStates.Level;
 public class  TinyUnit extends Enemy {
 
 	private Image looks;
+	private int cooldown = 20;
 	
 	public TinyUnit(Image looks, double x, double y, double width, double height, GameController gc, Level level){
 		
@@ -79,6 +81,13 @@ public class  TinyUnit extends Enemy {
 	public void updateUnit(double dt) {
 		
 		if(super.behaviour == Behaviour.IDLE){
+			
+			if(cooldown <= 0){
+				cooldown = 20;		
+				Random rand = new Random();
+				this.SetDestination(rand.nextInt(320), rand.nextInt(180));
+			}
+			cooldown--;
 			
 		}
 		

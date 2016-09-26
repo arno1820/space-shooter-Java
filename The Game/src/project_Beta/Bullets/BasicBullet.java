@@ -1,6 +1,7 @@
 package project_Beta.Bullets;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import engine.core.GameController;
 import engine.core.Renderer;
@@ -13,16 +14,17 @@ public class BasicBullet extends Bullet {
 	private Image bullet;
 	
 	public BasicBullet(double x, double y, Unit firedBy, Level level, GameController gc) {
-		super(2, 2, x, y,firedBy, level, gc);
+		super(4, 4, x, y,firedBy, level, gc);
 		bullet = gc.getImageManager().getImage("/PlayerShips/Bullet.png");
+		Random rand = new Random();
+		speed = rand.nextInt(4)+2;
 	}
-
+	
 	private int speed = 1;
 	
 	@Override
 	public void impact() {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
