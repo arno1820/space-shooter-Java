@@ -85,14 +85,14 @@ public class Level extends GameState {
 	private void updateWave(GameController gc){
 		
 		Random rand = new Random();
-		
+		//TODO: spawnen alle enemies? location wrong?
 		//TODO: Still very basic, needs more!
 		if(enemies.isEmpty()){
 			int n = 0;
 			for(int i = wave; i > 0; i--){
 				enemies.add(new TinyUnit(iM.getImage("/Enemies/EM_Fighter.png"), 320 + rand.nextInt(20), rand.nextInt(180), 4, 3, gc, this));
 				enemies.get(n).SetDestination(100 + rand.nextInt(220), rand.nextInt(180));
-				n++;
+				n *= 10;
 			}
 			wave++;
 		}
