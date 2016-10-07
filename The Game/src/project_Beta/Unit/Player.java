@@ -36,7 +36,7 @@ public class Player extends Unit {
 		this.player = image;
 		super.health = 100;
 		super.position = new Position(image.getWidth(), image.getHeight(),x, y, gc);
-		healthText = new Text("Health: " + super.health, new Position(130, 10, gc));
+		healthText = new Text("Health: " + super.health, new Position(140, 10, gc));
 		gc.addText(healthText);
 	}
 	@Override

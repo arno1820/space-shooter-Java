@@ -23,11 +23,14 @@ public class Level extends GameState {
 
 	private Player player;
 	private ArrayList<Enemy> enemies = new ArrayList<Enemy>();
-	private int wave = 1;
+	private int wave = 0;
+	private int realWave = 0;
 	private ArrayList<Bullet> bullets = new ArrayList<Bullet>();
 	private GameController gc;
 	private Text killsText = null;
 	private int kills = 0;
+	private Text waveText = null;
+	private Text enemiesOnScreen = null;
 
 	private boolean previousBulletWasDeleted = false;
 	private boolean previousEnemyWasDeleted = false;
@@ -37,7 +40,8 @@ public class Level extends GameState {
 	public GameState updateGameState(GameController gc, float dt) {
 
 		killsText.setString("Kills: " + kills);
-
+		waveText.setString("Wave: " + realWave);
+		enemiesOnScreen.setString("Enemies on screen: " + enemies.size());
 		GameState next = null;
 
 		if(gameOver){
@@ -71,6 +75,8 @@ public class Level extends GameState {
 
 		if(next != null){
 			gc.deleteText(killsText);
+			gc.deleteText(enemiesOnScreen);
+			gc.deleteText(waveText);
 			return next;
 		}
 		return this;
@@ -109,7 +115,11 @@ public class Level extends GameState {
 
 		super.buttonList.add(new Button("/Menu/PlayAgain_Button.png", "/Menu/PlayAgain_ButtonHOVER.png", "/Menu/PlayAgain_ButtonPRESS.png", new SoundClip("/select.wav"), new SelectShip(), 5, 38, iM));
 		super.buttonList.add(new Button("/Menu/Menu_Button.png", "/Menu/Menu_ButtonHOVER.png", "/Menu/Menu_ButtonPRESS.png", new SoundClip("/select.wav"), new TitleScreen(), 5, 53, iM));
-		killsText = new Text("Kills: " + kills, new Position(70, 10, iM.getGc()));
+		killsText = new Text("Kills: " + kills, new Position(80, 10, iM.getGc()));
+		waveText = new Text("Wave: " + realWave, new Position(230, 10, iM.getGc()));
+		enemiesOnScreen = new Text("Enemies On Screen: " + enemies.size(), new Position(300, 10, iM.getGc()));
+		iM.getGc().addText(enemiesOnScreen);
+		iM.getGc().addText(waveText);
 		iM.getGc().addText(killsText);
 	}
 	
@@ -125,9 +135,9 @@ public class Level extends GameState {
 				enemies.get(n).SetDestination(100 + rand.nextInt(220), rand.nextInt(180));
 				n *= 10;
 			}
+			wave += 5;
+			realWave++;
 
-
-			wave *= 2;
 		}
 		
 	}
