@@ -63,6 +63,9 @@ public class Player extends Unit {
 					leftGun = true;
 					cooldown = 0.20;
 				}
+
+				level.addBullet(new BasicBullet(position.getX() + position.getWidth(), position.getY() + position.getHeight()/2, 4, this, level, level.getGc()));
+
 			}else cooldown -= dt;
 		}
 		

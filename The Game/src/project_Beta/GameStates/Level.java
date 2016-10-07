@@ -16,7 +16,7 @@ public class Level extends GameState {
 	private Image background;
 	private Player player;
 	private ArrayList<Enemy> enemies = new ArrayList<Enemy>();
-	private int wave = 100;
+	private int wave = 2;
 	private ArrayList<Bullet> bullets = new ArrayList<Bullet>();
 	private GameController gc;
 	private boolean previousBulletWasDeleted = false;
@@ -94,7 +94,7 @@ public class Level extends GameState {
 				enemies.get(n).SetDestination(100 + rand.nextInt(220), rand.nextInt(180));
 				n *= 10;
 			}
-			wave += 100;
+			wave += 50;
 		}
 		
 	}

@@ -12,15 +12,20 @@ import project_Beta.Unit.Unit;
 public class BasicBullet extends Bullet {
 
 	private Image bullet;
+	private int speed;
 	
 	public BasicBullet(double x, double y, Unit firedBy, Level level, GameController gc) {
 		super(4, 4, x, y,firedBy, level, gc);
 		bullet = gc.getImageManager().getImage("/PlayerShips/Bullet.png");
 		Random rand = new Random();
-		speed = rand.nextInt(4)+2;
+		speed = 3 + rand.nextInt(1);
 	}
-	
-	private int speed = 1;
+	public BasicBullet(double x, double y, int speedness, Unit firedBy, Level level, GameController gc) {
+		super(4, 4, x, y,firedBy, level, gc);
+		bullet = gc.getImageManager().getImage("/PlayerShips/Bullet.png");
+		Random rand = new Random();
+		speed = speedness;
+	}
 	
 	@Override
 	public void impact() {

@@ -139,7 +139,7 @@ public class  TinyUnit extends Enemy {
 	
 	private void randomDestiantion(){
 		Random rand = new Random();
-		this.SetDestination(rand.nextInt(320), rand.nextInt(180));
+		this.SetDestination(100 + rand.nextInt(220), rand.nextInt(180));
 	}
 		
 }

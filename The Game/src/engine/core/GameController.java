@@ -14,7 +14,7 @@ public class GameController implements Runnable{
 	private ImageManager imageManager;
 	
 	//to be changed! not alot of pixels -> small resolution (because cpu is going to render all)
-	private int width = 320, height = 180;
+	private int width = 350, height = 180;
 	//we need to enlarge our with an height to a nice window size.
 	private float scale = 4;
 	private String title = "AEngine by Arno Rondou v1.0";
