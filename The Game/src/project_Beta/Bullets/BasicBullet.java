@@ -46,7 +46,7 @@ public class BasicBullet extends Bullet {
 		for(Unit unit: units){
 			//TODO hier zit een kleine fout, soms hitten de bullets niet terwijl ze dit wel moeten doen!
 			if(unit != super.firedBy && super.position.hitboxCollision(unit.getPosition().getHitbox())){
-				unit.hit();
+				unit.hit(1);
 				this.killBullet();
 			}
 		}

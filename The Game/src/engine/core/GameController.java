@@ -2,7 +2,11 @@ package engine.core;
 
 import engine.core.gfx.ImageManager;
 import engine.core.gfx.RGBCalc;
+import engine.core.gfx.Text;
 import javafx.scene.AmbientLight;
+import project_Beta.Position;
+
+import java.util.ArrayList;
 
 public class GameController implements Runnable{
 
@@ -12,9 +16,11 @@ public class GameController implements Runnable{
 	private Renderer renderer;
 	private Input input;
 	private ImageManager imageManager;
+	private ArrayList<Text> textList;
+	private Text frameRateText;
 	
 	//to be changed! not alot of pixels -> small resolution (because cpu is going to render all)
-	private int width = 350, height = 180;
+	private int width = 320, height = 180;
 	//we need to enlarge our with an height to a nice window size.
 	private float scale = 4;
 	private String title = "AEngine by Arno Rondou v1.0";
@@ -45,6 +51,9 @@ public class GameController implements Runnable{
 		if(isRunning) return;
 		
 		window = new Window(this);
+		textList = window.getAllTextNOCLONE();
+		frameRateText = new Text("" + 0, new Position(10,10,this));
+		textList.add(frameRateText);
 		renderer = new Renderer(this);
 		if(lighting) renderer.setAmbientLight(ambientLight);
 		input = new Input(this);
@@ -53,9 +62,7 @@ public class GameController implements Runnable{
 		
 	}
 
-	public ImageManager getImageManager() {
-		return imageManager;
-	}
+	public ImageManager getImageManager() {return imageManager;}
 
 	public void stop(){
 		if(!isRunning) return;
@@ -98,7 +105,7 @@ public class GameController implements Runnable{
 				
 				if(frameTime >= 1){
 					frameTime = 0;
-					System.out.println(frameRate);
+					frameRateText.setString("FPS: " + frameRate);
 					frameRate = 0;
 				}
 				
@@ -184,4 +191,13 @@ public class GameController implements Runnable{
 	public Renderer getRenderer() {
 		return renderer;
 	}
+
+	public void addText(Text text){
+		textList.add(text);
+	}
+
+	public void deleteText(Text text){
+		textList.remove(text);
+	}
+
 }

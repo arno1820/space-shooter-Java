@@ -18,7 +18,7 @@ public abstract class Unit {
 	
 	public abstract void renderUnit(Renderer r);
 	
-	public abstract void hit();
+	public abstract void hit(int amount);
 	
 	public Position getPosition(){
 		return this.position;

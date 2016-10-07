@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Project_Beta:jar">
+    <output-path>$PROJECT_DIR$/The Game</output-path>
+    <root id="archive" name="AEngine.jar">
+      <element id="module-output" name="AEngine" />
+    </root>
+  </artifact>
+</component>

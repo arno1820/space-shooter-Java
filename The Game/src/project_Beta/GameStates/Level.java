@@ -5,27 +5,44 @@ import java.util.Random;
 
 import engine.core.GameController;
 import engine.core.Renderer;
+import engine.core.audio.SoundClip;
 import engine.core.gfx.Image;
 import engine.core.gfx.ImageManager;
+import engine.core.gfx.Text;
 import project_Beta.Bullets.Bullet;
+import project_Beta.Button;
+import project_Beta.Position;
 import project_Beta.Unit.*;
 
 public class Level extends GameState {
 	
 	private ImageManager iM;
 	private Image background;
+	private Button playAgain;
+	private Button menu;
+
 	private Player player;
 	private ArrayList<Enemy> enemies = new ArrayList<Enemy>();
-	private int wave = 2;
+	private int wave = 1;
 	private ArrayList<Bullet> bullets = new ArrayList<Bullet>();
 	private GameController gc;
+	private Text killsText = null;
+	private int kills = 0;
+
 	private boolean previousBulletWasDeleted = false;
 	private boolean previousEnemyWasDeleted = false;
-
+	private boolean gameOver = false;
 
 	@Override
 	public GameState updateGameState(GameController gc, float dt) {
-		
+
+		killsText.setString("Kills: " + kills);
+
+		GameState next = null;
+
+		if(gameOver){
+			next = updateButtons(super.buttonList, gc, dt);
+		}
 		player.updateUnit(dt);
 		updateWave(gc);
 		if(!enemies.isEmpty()){
@@ -51,14 +68,19 @@ public class Level extends GameState {
 			}
 		}
 		this.gc = gc;
+
+		if(next != null){
+			gc.deleteText(killsText);
+			return next;
+		}
 		return this;
 	}
 
 	@Override
 	public void renderGamestate(GameController gc, Renderer r) {
-		
+
 		r.drawImage(background,0,0);
-		player.renderUnit(r);
+		if(!gameOver)player.renderUnit(r);
 		
 		if(!enemies.isEmpty()){
 			
@@ -72,6 +94,11 @@ public class Level extends GameState {
 				bullet.renderBullet(r);
 			}
 		}
+
+		if(gameOver){
+			renderButtons(buttonList, gc, r);
+		}
+
 	}
 
 	@Override
@@ -80,10 +107,14 @@ public class Level extends GameState {
 		this.background = iM.getImage("/Backgrounds/Background_MENU.png");
 		this.player = new Player(iM.getImage("/PlayerShips/Blue.png"), 20, 90, iM.getGc(), this);
 
-	}	
+		super.buttonList.add(new Button("/Menu/PlayAgain_Button.png", "/Menu/PlayAgain_ButtonHOVER.png", "/Menu/PlayAgain_ButtonPRESS.png", new SoundClip("/select.wav"), new SelectShip(), 5, 38, iM));
+		super.buttonList.add(new Button("/Menu/Menu_Button.png", "/Menu/Menu_ButtonHOVER.png", "/Menu/Menu_ButtonPRESS.png", new SoundClip("/select.wav"), new TitleScreen(), 5, 53, iM));
+		killsText = new Text("Kills: " + kills, new Position(70, 10, iM.getGc()));
+		iM.getGc().addText(killsText);
+	}
 	
 	private void updateWave(GameController gc){
-		
+
 		Random rand = new Random();
 		//TODO: spawnen alle enemies? location wrong?
 		//TODO: Still very basic, needs more!
@@ -94,14 +125,16 @@ public class Level extends GameState {
 				enemies.get(n).SetDestination(100 + rand.nextInt(220), rand.nextInt(180));
 				n *= 10;
 			}
-			wave += 50;
+
+
+			wave *= 2;
 		}
 		
 	}
 	
 	public ArrayList<Unit> getUnitList(){
 		ArrayList<Unit> unitList = (ArrayList<Unit>) enemies.clone();
-		unitList.add(player);
+		if(!gameOver)unitList.add(player);
 		return unitList;
 	}
 	
@@ -118,13 +151,21 @@ public class Level extends GameState {
 		if(unit instanceof Enemy){
 			enemies.remove(unit);
 			previousEnemyWasDeleted = true;
+			if(!gameOver)kills++;
 		}else if(unit instanceof Player){
-			//TODO GAME OVER!
+			gameOver = true;
 		}
 	}
 	
 	public GameController getGc() {
 		return gc;
 	}
-	
+
+	public Player getPlayer() {
+		return player;
+	}
+
+	public boolean getGameOver(){
+		return gameOver;
+	}
 }

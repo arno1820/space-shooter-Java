@@ -1,12 +1,11 @@
 package engine.core;
 
-import java.awt.BorderLayout;
-import java.awt.Canvas;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
+import engine.core.gfx.Text;
+
+import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
@@ -16,12 +15,14 @@ public class Window {
 	private JFrame frame;
 	//what we are going to render to
 	private Canvas canvas;
-	//Image of the game, we will manipulate theze pixels
+	//Image of the game, we will manipulate these pixels
 	private BufferedImage image;
 	//what we use to draw the buffered image on our canvas
 	private Graphics g;
 	//Dubble buffering (against flickering)
 	private BufferStrategy bs;
+
+	private ArrayList<Text> text = new ArrayList<Text>();
 	
 	//gameController for with and height
 	public Window(GameController gc) {
@@ -54,13 +55,20 @@ public class Window {
 		//sets 1 buffer, 
 		//bufferstategy -> when an image is rendered, it draws it peace by peace, which make it flicker.
 		//g will draw to the bs.
-		canvas.createBufferStrategy(1);
+		canvas.createBufferStrategy(2);
 		bs = canvas.getBufferStrategy();
 		g = bs.getDrawGraphics();
 	}
 	
 	public void update(){
 		g.drawImage(image, 0, 0, canvas.getWidth(), canvas.getHeight(), null);
+		if(!text.isEmpty()){
+			for(Text text1 : text){
+				g.setColor(Color.MAGENTA);
+				g.setFont(new Font(g.getFont().getFontName(), Font.BOLD, g.getFont().getSize()));
+				g.drawString(text1.getString(), (int) text1.getPosition().getX(), (int) text1.getPosition().getY());
+			}
+		}
 		bs.show();
 	}
 	
@@ -78,4 +86,17 @@ public class Window {
 	public BufferedImage getImage() {
 		return image;
 	}
+
+	public void addText(Text text1){
+		text.add(text1);
+	}
+
+	public ArrayList<Text> getAllTextNOCLONE(){
+		return text;
+	}
+
+	public ArrayList<Text> getAllText(){
+		return (ArrayList<Text>) text.clone();
+	}
+
 }

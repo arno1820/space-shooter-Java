@@ -9,6 +9,7 @@ import engine.core.Renderer;
 import engine.core.audio.SoundClip;
 import engine.core.gfx.Image;
 import engine.core.gfx.ImageManager;
+import engine.core.gfx.Text;
 import project_Beta.Position;
 import project_Beta.Bullets.BasicBullet;
 import project_Beta.GameStates.GameState;
@@ -21,21 +22,28 @@ public class Player extends Unit {
 	private boolean leftGun = true;
 	private SoundClip sound1; 
 	private SoundClip sound2; 
-	private SoundClip sound3; 
+	private SoundClip sound3;
+	private Text healthText;
+	private GameController gC;
+
 	public Player(Image image, double x, double y, GameController gc, Level level){
-		
+
+		gC = gc;
 		sound1 = new SoundClip("/Randomize.wav");
 		sound2 = new SoundClip("/Randomize2.wav");
 		sound3 = new SoundClip("/Randomize3.wav");
 		this.level = level;
 		this.player = image;
-		super.health = 3;
+		super.health = 100;
 		super.position = new Position(image.getWidth(), image.getHeight(),x, y, gc);
-		
+		healthText = new Text("Health: " + super.health, new Position(130, 10, gc));
+		gc.addText(healthText);
 	}
 	@Override
 	public void updateUnit(double dt){
-		
+
+		healthText.setString("Health: " + super.health);
+
 		double XPos = super.position.getX();
 		double YPos = super.position.getY();
 		
@@ -73,7 +81,7 @@ public class Player extends Unit {
 			super.position.setPosition(XPos, YPos);
 		}
 		//System.out.println(position.getX() +"y:" + position.getY());
-		
+
 	}
 	
 	@Override
@@ -82,9 +90,12 @@ public class Player extends Unit {
 		
 	}
 	@Override
-	public void hit() {
-		// TODO Hit van player
-		
+	public void hit(int amount) {
+		super.health -= amount;
+		if(super.health <=0){
+			gC.deleteText(healthText);
+			super.level.deleteUnit(this);
+		}
 	}
 	
 }

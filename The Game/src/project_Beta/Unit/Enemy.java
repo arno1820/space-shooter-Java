@@ -6,7 +6,7 @@ public abstract class Enemy extends Unit {
 	
 	SquadManager Squad;
 	double[] destination = null;
-	Behaviour behaviour = Behaviour.IDLE;
+	Behaviour behaviour = null;
 	int busyTime = 0;
 	Behaviour nextBehaviour = Behaviour.IDLE;
 		
