@@ -30,7 +30,7 @@ public class BasicBullet extends Bullet {
 	@Override
 	public void updateBullet(double dt) {
 		
-		if(super.position.getX() > super.gc.getWidth()){
+		if(super.position.getX() > 320){
 			killBullet();
 		}
 		

@@ -105,13 +105,9 @@ public class Position {
 
 		double[] thisHitbox = this.getHitbox();
 		int faults = 0;
-		
 		if(!(hitbox[0] > thisHitbox[1] || hitbox[1] < thisHitbox[0])) faults +=1;
 		if(!(hitbox[2] > thisHitbox[3] || hitbox[3] < thisHitbox[2])) faults +=1;
-		if(faults == 2) {
-			return true;
-		}
-		else return false;
+        return faults == 2;
 		
 	}
 
@@ -120,7 +116,7 @@ public class Position {
 		ArrayList<Unit> units = level.getUnitList();
 
 		for(Unit unit: units){
-			if(unit == thisUnit){
+			if(unit.getClass() == thisUnit.getClass()){
 
 			}else if(this.hitboxCollision(unit.getPosition().getHitbox())){
 				return true;

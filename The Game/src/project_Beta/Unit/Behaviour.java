@@ -4,5 +4,5 @@ public enum Behaviour {
 
 	MOVE,
 	SHOOT,
-	IDLE;
+	IDLE
 }

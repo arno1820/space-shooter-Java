@@ -21,7 +21,7 @@ public class  TinyUnit extends Enemy {
 		super.level = level;
 		this.looks = looks;
 		
-		super.health = 2;
+		super.health = 1;
 		
 		super.position = new Position(width, height, x, y,(double) 0,(double) gc.getWidth() + 20, (double) 0, (double)gc.getHeight(), gc);
 		super.frontalSpeed = 80;
@@ -74,6 +74,10 @@ public class  TinyUnit extends Enemy {
 		if(super.position.checkHitBoxCollision(super.level, this)){
 			super.position.setPosition(XPos, YPos);
 		}
+
+		if(XPos == super.position.getX() && YPos == super.position.getY()) {
+			super.behaviour = Behaviour.IDLE;
+		}
 		
 	}
 	
@@ -81,18 +85,21 @@ public class  TinyUnit extends Enemy {
 	public void updateUnit(double dt) {
 		
 		if(super.behaviour == Behaviour.IDLE){
-			
-			if(cooldown <= 0){
-				cooldown = 20;		
+
+			if(cooldown <= 0) {
+				cooldown = 20;
+
 				Random rand = new Random();
-				this.SetDestination(rand.nextInt(320), rand.nextInt(180));
+				int next = rand.nextInt(10);
+				if (next < 7) randomDestiantion();
+				if(next >= 7) super.behaviour = Behaviour.SHOOT;
 			}
 			cooldown--;
 			
 		}
 		
 		if(super.behaviour == Behaviour.SHOOT){
-			
+			super.behaviour = Behaviour.IDLE;
 		}
 		
 		if(super.behaviour == Behaviour.MOVE){
@@ -130,6 +137,9 @@ public class  TinyUnit extends Enemy {
 		
 	}
 	
-	
+	private void randomDestiantion(){
+		Random rand = new Random();
+		this.SetDestination(rand.nextInt(320), rand.nextInt(180));
+	}
 		
 }
