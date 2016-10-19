@@ -21,32 +21,141 @@
     <favorites_list name="Gamepje-met-Joran" />
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <leaf>
       <file leaf-file-name="game.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/The Game/src/project_Beta/game.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="260">
-              <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+=======
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Level.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/The Game/src/project_Beta/GameStates/Level.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="119" column="91" selection-start-line="119" selection-start-column="91" selection-end-line="119" selection-end-column="91" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TinyUnit.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TinyUnit.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/The Game/src/project_Beta/Unit/TinyUnit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
+            <state relative-caret-position="2556">
               <caret line="152" column="52" selection-start-line="152" selection-start-column="52" selection-end-line="152" selection-end-column="52" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="GameController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/The Game/src/engine/core/GameController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-54">
+              <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+              <folding>
+                <element signature="e#3929#3930#0" expanded="true" />
+                <element signature="e#3954#3955#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Window.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/The Game/src/engine/core/Window.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1044">
+              <caret line="65" column="31" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#2552#2553#0" expanded="false" />
+                <element signature="e#2572#2573#0" expanded="false" />
+                <element signature="e#2608#2609#0" expanded="false" />
+                <element signature="e#2627#2628#0" expanded="false" />
+                <element signature="e#2662#2663#0" expanded="false" />
+                <element signature="e#2684#2685#0" expanded="false" />
+                <element signature="e#2730#2731#0" expanded="false" />
+                <element signature="e#2748#2749#0" expanded="false" />
+                <element signature="e#2787#2788#0" expanded="false" />
+                <element signature="e#2831#2832#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="game.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/The Game/src/project_Beta/game.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+>>>>>>> parent of b1940a8... workspace intellij file is aangepast
+              <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
+      <file leaf-file-name="TinyUnit.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/The Game/src/project_Beta/Unit/TinyUnit.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="152" column="52" selection-start-line="152" selection-start-column="52" selection-end-line="152" selection-end-column="52" />
+=======
+      <file leaf-file-name="BasicBullet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/The Game/src/project_Beta/Bullets/BasicBullet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="738">
+              <caret line="48" column="26" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Enemy.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/The Game/src/project_Beta/Unit/Enemy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TitleScreen.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/The Game/src/project_Beta/GameStates/TitleScreen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="630">
+              <caret line="43" column="20" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/The Game/src/project_Beta/Unit/Player.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="38" column="73" selection-start-line="38" selection-start-column="73" selection-end-line="38" selection-end-column="73" />
+>>>>>>> parent of b1940a8... workspace intellij file is aangepast
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
       <file leaf-file-name="MANIFEST.MF" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/The Game/src/META-INF/MANIFEST.MF">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+      <file leaf-file-name="Position.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/The Game/src/project_Beta/Position.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1908">
+              <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+>>>>>>> parent of b1940a8... workspace intellij file is aangepast
               <folding />
             </state>
           </provider>
@@ -199,6 +308,42 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gamepje-met-Joran" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="The Game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PlayerShips" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gamepje-met-Joran" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="The Game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Menu" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -688,13 +833,21 @@
       <option name="presentableId" value="Default" />
       <updated>1475853215398</updated>
       <workItem from="1475853219162" duration="24799000" />
+<<<<<<< HEAD
       <workItem from="1475881989185" duration="2191000" />
       <workItem from="1475912205331" duration="410000" />
+=======
+      <workItem from="1475881989185" duration="1513000" />
+>>>>>>> parent of b1940a8... workspace intellij file is aangepast
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="27400000" />
+=======
+    <option name="totallyTimeSpent" value="26312000" />
+>>>>>>> parent of b1940a8... workspace intellij file is aangepast
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="26" width="1920" height="1053" extended-state="6" />
@@ -709,10 +862,18 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3329843" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1890625" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+=======
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3329843" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19791667" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+>>>>>>> parent of b1940a8... workspace intellij file is aangepast
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -806,7 +967,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1044">
           <caret line="65" column="31" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2552#2553#0" expanded="false" />
+            <element signature="e#2572#2573#0" expanded="false" />
+            <element signature="e#2608#2609#0" expanded="false" />
+            <element signature="e#2627#2628#0" expanded="false" />
+            <element signature="e#2662#2663#0" expanded="false" />
+            <element signature="e#2684#2685#0" expanded="false" />
+            <element signature="e#2730#2731#0" expanded="false" />
+            <element signature="e#2748#2749#0" expanded="false" />
+            <element signature="e#2787#2788#0" expanded="false" />
+            <element signature="e#2831#2832#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -967,10 +1140,81 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/The Game/src/project_Beta/GameStates/Level.java">
+    <entry file="file://$PROJECT_DIR$/The Game/src/project_Beta/Bullets/BasicBullet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="119" column="91" selection-start-line="119" selection-start-column="91" selection-end-line="119" selection-end-column="91" />
+        <state relative-caret-position="738">
+          <caret line="48" column="26" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/The Game/src/engine/core/GameController.java">
+=======
+    <entry file="file://$PROJECT_DIR$/The Game/src/project_Beta/Position.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1908">
+          <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/The Game/src/project_Beta/Unit/Enemy.java">
+>>>>>>> parent of b1940a8... workspace intellij file is aangepast
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/The Game/src/project_Beta/GameStates/TitleScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="43" column="20" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/The Game/src/project_Beta/Bullets/BasicBullet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="48" column="26" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
+=======
+    <entry file="file://$PROJECT_DIR$/The Game/src/project_Beta/game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/The Game/src/engine/core/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1044">
+          <caret line="65" column="31" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2552#2553#0" expanded="false" />
+            <element signature="e#2572#2573#0" expanded="false" />
+            <element signature="e#2608#2609#0" expanded="false" />
+            <element signature="e#2627#2628#0" expanded="false" />
+            <element signature="e#2662#2663#0" expanded="false" />
+            <element signature="e#2684#2685#0" expanded="false" />
+            <element signature="e#2730#2731#0" expanded="false" />
+            <element signature="e#2748#2749#0" expanded="false" />
+            <element signature="e#2787#2788#0" expanded="false" />
+            <element signature="e#2831#2832#0" expanded="false" />
+          </folding>
+>>>>>>> parent of b1940a8... workspace intellij file is aangepast
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/The Game/src/project_Beta/Unit/TinyUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2556">
+          <caret line="152" column="52" selection-start-line="152" selection-start-column="52" selection-end-line="152" selection-end-column="52" />
           <folding />
         </state>
       </provider>
@@ -986,37 +1230,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/The Game/src/engine/core/Window.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="65" column="31" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/The Game/src/project_Beta/Bullets/BasicBullet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="48" column="26" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/The Game/src/project_Beta/Unit/Enemy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/The Game/src/project_Beta/GameStates/TitleScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="43" column="20" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/The Game/src/project_Beta/Unit/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -1025,10 +1238,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/The Game/src/project_Beta/Position.java">
+    <entry file="file://$PROJECT_DIR$/The Game/src/project_Beta/GameStates/Level.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+        <state relative-caret-position="324">
+          <caret line="119" column="91" selection-start-line="119" selection-start-column="91" selection-end-line="119" selection-end-column="91" />
           <folding />
         </state>
       </provider>
